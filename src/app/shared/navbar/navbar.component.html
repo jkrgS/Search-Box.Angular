@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" [routerLink]="['/search']">Search-Box</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- checking if user is logged in -->
+  <div
+    *ngIf="loggedIn()"
+    class="collapse navbar-collapse"
+    id="navbarsExampleDefault"
+  >
+    <ul class="navbar-nav mr-auto">
+      <li *ngFor="let navR of navRoutes" class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="navR.url"
+          routerLinkActive="router-link-active"
+          ><fa name="{{navR.icon}}"></fa></a
+        >
+      </li>
+    </ul>
+
+    <span class="welcome-message">Welcome {{ username }}</span>
+    &nbsp; &nbsp;
+    <button type="button" class="btn btn-danger" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</nav>

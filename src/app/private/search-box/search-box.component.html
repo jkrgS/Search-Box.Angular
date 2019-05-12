@@ -1,0 +1,31 @@
+<div class="card mt-5 search-box">
+  <div class="card-body">
+    <!-- card title -->
+    <h2 class="card-title">
+      Where are you going?
+    </h2>
+    <form class="navbar-form navbar-right">
+      <div class="form-group">
+        <!-- no results found alert -->
+        <div class="alert alert-danger" *ngIf="noResult">No results found</div>
+        <!-- label -->
+        <label class="iput-title">Pick-up Location</label>
+        <!-- searching input -->
+        <input
+          [(ngModel)]="search"
+          [ngModelOptions]="{standalone: true}"
+          [typeahead]="results"
+          (typeaheadNoResults)="typeaheadNoResults($event)"
+          [typeaheadScrollable]="true"
+          [typeaheadOptionsInScrollableView]="5"
+          [typeaheadMinLength]="2"
+          [typeaheadOptionsLimit]="6"
+          typeaheadWaitMs="1500"
+          (keyup)="getLocations()"
+          placeholder="city, airport, station, region and district..."
+          class="form-control"
+        />
+      </div>
+    </form>
+  </div>
+</div>

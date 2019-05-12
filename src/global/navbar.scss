@@ -1,0 +1,12 @@
+$color: aliceblue;
+
+.welcome-message {
+  color: $color;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: $color !important;
+  font-size: 18px;
+}
